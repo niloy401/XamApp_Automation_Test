@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Gogeta",
+    "email": "ggty@al.com",
+    "phone": "145678973",
+    "password": "songokhumw",
+    "confirm_password": "songokhumw"
+  },
+
+  {
+    "name": "user101",
+    "email": "user101@hotmail.com",
+    "phone": "0312199867",
+    "password": "passwordmw",
+    "confirm_password": "passwordmw"
+  },
+
+  {
+    "name": "Justin Russo",
+    "email": "riqve2qr2c@vwhins.com",
+    "phone": "01212385574",
+    "password": "justinmw",
+    "confirm_password": "justinmw"
+
+  }
+
+]
