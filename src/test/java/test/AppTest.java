@@ -48,28 +48,30 @@ public class AppTest extends BaseTest {
 
         /**Registration Form Page*/
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
-        driver.findElement(POPUP_MODAL_CLOSE_BUTTON).click();
+               WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        wait.until(ExpectedConditions.elementToBeClickable(POPUP_MODAL_CLOSE_BUTTON));
+        Assert.assertTrue(driver.findElement(POPUP_MODAL_CLOSE_BUTTON).isDisplayed(), "The Popup Modal is not displayed"); // Validating if the Popup is displayed
+        driver.findElement(POPUP_MODAL_CLOSE_BUTTON).click(); // Closing the Popup Modal
 
-        Assert.assertTrue(driver.findElement(REGISTRATION_BUTTON).isDisplayed(), "The Registration Button is not displayed");
+        Assert.assertTrue(driver.findElement(REGISTRATION_BUTTON).isDisplayed(), "The Registration Button is not displayed"); //Validating if the Registration Button is displayed
         driver.findElement(REGISTRATION_BUTTON).click();
 
-        driver.findElement(USERNAME_TEXTBOX).sendKeys(user.getUsername());
-        Assert.assertEquals(driver.findElement(USERNAME_TEXTBOX).getAttribute("value"), user.getUsername(), "Name does not match");
+        driver.findElement(USERNAME_TEXTBOX).sendKeys(user.getUsername()); // Entering the Username for registration
+        Assert.assertEquals(driver.findElement(USERNAME_TEXTBOX).getAttribute("value"), user.getUsername(), "Name does not match"); //Validating if the Name is entered correctly
 
-        driver.findElement(EMAIL_TEXTBOX).sendKeys(user.getEmail());
-        Assert.assertEquals(driver.findElement(EMAIL_TEXTBOX).getAttribute("value"), user.getEmail(), "Email does not match");
+        driver.findElement(EMAIL_TEXTBOX).sendKeys(user.getEmail()); // Entering the Email for registration
+        Assert.assertEquals(driver.findElement(EMAIL_TEXTBOX).getAttribute("value"), user.getEmail(), "Email does not match"); //Validating if the Email is entered correctly
 
-        driver.findElement(PHONE_TEXTBOX).sendKeys(user.getPhone());
-        Assert.assertEquals(driver.findElement(PHONE_TEXTBOX).getAttribute("value"), user.getPhone(), "Phone does not match");
+        driver.findElement(PHONE_TEXTBOX).sendKeys(user.getPhone()); // Entering the Phone Number for registration
+        Assert.assertEquals(driver.findElement(PHONE_TEXTBOX).getAttribute("value"), user.getPhone(), "Phone does not match"); //Validating if the Phone Number is entered correctly
 
-        driver.findElement(PASSWORD_TEXTBOX).sendKeys(user.getPassword());
-        Assert.assertEquals(driver.findElement(PASSWORD_TEXTBOX).getAttribute("value"), user.getPassword(), "Password does not match");
+        driver.findElement(PASSWORD_TEXTBOX).sendKeys(user.getPassword()); // Entering the Password for registration
+        Assert.assertEquals(driver.findElement(PASSWORD_TEXTBOX).getAttribute("value"), user.getPassword(), "Password does not match"); //Validating if the Password is entered correctly
 
-        driver.findElement(CONFIRM_PASSWORD_TEXTBOX).sendKeys(user.getConfirmPassword());
-        Assert.assertEquals(driver.findElement(CONFIRM_PASSWORD_TEXTBOX).getAttribute("value"), user.getConfirmPassword(), "Confirm Password does not match");
+        driver.findElement(CONFIRM_PASSWORD_TEXTBOX).sendKeys(user.getConfirmPassword()); // Entering the Confirm Password for registration
+        Assert.assertEquals(driver.findElement(CONFIRM_PASSWORD_TEXTBOX).getAttribute("value"), user.getConfirmPassword(), "Confirm Password does not match"); // Validating if the Confirm Password is entered correctly
 
-        Assert.assertTrue(driver.findElement(REGISTER_BUTTON).isDisplayed(), "The Register Button is not displayed");
+        Assert.assertTrue(driver.findElement(REGISTER_BUTTON).isDisplayed(), "The Register Button is not displayed"); // Validating if the Register Button is displayed
         driver.findElement(REGISTER_BUTTON).click();
 
         // Checking if the user is already registered or not
@@ -87,16 +89,17 @@ public class AppTest extends BaseTest {
         }
 
         if (isRegistered) {
-            Assert.assertTrue(driver.findElement(REGISTRATION_SUCCESS_MESSAGE).isDisplayed());
-            String registrationSuccessMessageText = driver.findElement(REGISTRATION_SUCCESS_MESSAGE).getText();
-            System.out.println(registrationSuccessMessageText);
+            Assert.assertTrue(driver.findElement(REGISTRATION_SUCCESS_MESSAGE).isDisplayed()); //Validating if the Registration Success Message is displayed
+            String registrationSuccessMessageText = driver.findElement(REGISTRATION_SUCCESS_MESSAGE).getText(); //Retrieving the Registration Success Message from the page
+
+            System.out.println(registrationSuccessMessageText); //Printing the Registration Success Message retrieved form the page
         } else {
-            Assert.assertTrue(driver.findElement(EXISTING_USER_MESSAGE).isDisplayed());
-            String existingUserMessageText = driver.findElement(EXISTING_USER_MESSAGE).getText();
-            System.out.println(existingUserMessageText);
+            Assert.assertTrue(driver.findElement(EXISTING_USER_MESSAGE).isDisplayed()); //Validating if the Existing User Message is displayed
+            String existingUserMessageText = driver.findElement(EXISTING_USER_MESSAGE).getText(); //Retrieving the Existing User Message from the page
+
+            System.out.println(existingUserMessageText); //Printing the Existing User Message retrieved form the page
         }
     }
-
 
     // Login Test & Profile Update Test with valid credentials //
     @Test(dataProvider = "lastUserDataProvider", dataProviderClass = DataContributors.class)
