@@ -196,6 +196,7 @@ public class AppTest extends BaseTest {
         wait.until(ExpectedConditions.visibilityOfElementLocated(UPDATE_BUTTON));
 
         //Validating if the Profile is updated successfully
+        wait.until(ExpectedConditions.visibilityOfElementLocated(UPDATE_SUCCESS_MESSAGE));
         Assert.assertTrue(driver.findElement(UPDATE_SUCCESS_MESSAGE).isDisplayed(), "Profile update success message is not displayed");
     }
 }
