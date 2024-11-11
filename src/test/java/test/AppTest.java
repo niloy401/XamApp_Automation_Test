@@ -110,7 +110,7 @@ public class AppTest extends BaseTest {
         final String updated_uni_name = "Brac University";
         final String updated_day = "18";
         final String updated_month = "11";
-        final String updated_year = "2023";
+        final String updated_year = "2001";
 
         /**Login Form Page*/
 
